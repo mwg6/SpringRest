@@ -17,5 +17,10 @@ public class BlogController {
 		// the request mapping isn't working here
         return "Congratulations from BlogController.java";
     }
+	@RequestMapping("/home")
+    public String home() {
+		// the request mapping isn't working here
+        return "Congratulations from BlogController.java home";
+    }
 
 }
