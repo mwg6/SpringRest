@@ -14,6 +14,7 @@ public class BlogController {
 	//private RestTemplate service;
     @RequestMapping("/")
     public String index() {
+		// the request mapping isn't working here
         return "Congratulations from BlogController.java";
     }
 
