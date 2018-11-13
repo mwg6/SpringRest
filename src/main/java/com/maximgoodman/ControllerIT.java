@@ -1,3 +1,4 @@
+/*
 package com.maximgoodman;
 
 import static org.hamcrest.Matchers.*;
@@ -21,7 +22,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ControllerIT {
 	/*
 	 * boots application on random port, checks it returns what it should, and alerts via eclipse
-	 */
+	 
 	@LocalServerPort
 	private int port;
 	
@@ -41,3 +42,4 @@ public class ControllerIT {
 		assertThat(response.getBody(), equalTo("Congratulations from BlogController.java"));
 	}
 }
+*/

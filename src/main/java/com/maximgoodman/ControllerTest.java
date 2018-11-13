@@ -7,28 +7,31 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.junit.Test;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-@AutoConfigureMockMvc
+@RunWith(SpringJUnit4ClassRunner.class)
+
 //the two above work together to inject a a MockMvc instance to the dispatcher servlet.
 //springboottest requests building of the whole application. To isolate layers yse WebMvctest
 
+@ContextConfiguration(
+		//indicates to which classes this test will be applied to
+	classes = {BlogController.class},
+	//loads bean definitions from @configuration classes
+	loader = AnnotationConfigContextLoader.class)
+
 public class ControllerTest {
 
-	@Autowired
-	private MockMvc mvc;
+	
 	//sends https requests to the dispatcher servlet and communicates results
 	@Test
-	public void gethello() throws Exception{
-		mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk()).andExpect(content().string(equalTo("Congratulations from BlogController.java")));
+	public void whenSpringContextIsInstantiated_thenNoExceptions(){
+		System.out.println("no exceptions from blogController");
 	}
 	
 }

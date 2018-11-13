@@ -15,6 +15,7 @@ public class MainApplicationClass {
         SpringApplication.run(MainApplicationClass.class, args);
     }
     
+    /*
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx){
     	
@@ -28,4 +29,5 @@ public class MainApplicationClass {
     	}
     	};
     }
+    */
 }
